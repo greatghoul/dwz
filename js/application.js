@@ -4,8 +4,6 @@
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   }
 
-  
-    
   $(function() {
     var $url_long   = $('#url-long')
       , $url_short  = $('#url-short')
