@@ -45,5 +45,7 @@
     $url_long.val(getParameterByName('url'));
     $btn_submit.on('click', shorterUrl)
     $btn_submit.trigger('click');
+
+    $('#bookmarklet').attr('href', "javascript:(function(){window.open('__DWZ__?url='+encodeURIComponent(location.href),'_blank','width=450,height=260');})()".replace('__DWZ__', location.origin));
   });  
 })();
