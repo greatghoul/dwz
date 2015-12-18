@@ -18,7 +18,8 @@
       if (!url) return;
 
       $.ajax({
-        url: 'http://hget.sinaapp.com/post/http://dwz.cn/create.php',
+        url: 'http://dwz.cn/create.php',
+        type: 'POST',
         data: { url: url },
         dataType: 'json',
         beforeSend: function() {
