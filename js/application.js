@@ -18,7 +18,7 @@
       if (!url) return;
 
       $.ajax({
-        url: 'http://dwz.cn/create.php',
+        url: '/create.php',
         type: 'POST',
         data: { url: url },
         dataType: 'json',
@@ -26,6 +26,7 @@
           $btn_submit.attr('disabled', 'disabled');
         },
         success: function(result) {
+          console.log(result);
           if (result.err_msg) {
             $url_short.val(result.err_msg);
             $url_short.parent().addClass('has-error');
@@ -33,11 +34,13 @@
             $url_short.val(result.tinyurl).focus().select();
           }
         },
-        error: function() {
+        error: function(data) {
+          console.log(data);
           $url_short.val('请求失败，请重试。');
           $url_short.parent().addClass('has-error');
         },
-        complete: function() {
+        complete: function(data) {
+          console.log(data);
           $btn_submit.removeAttr('disabled');    
         }
       });
