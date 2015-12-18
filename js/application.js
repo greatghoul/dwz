@@ -26,7 +26,6 @@
           $btn_submit.attr('disabled', 'disabled');
         },
         success: function(result) {
-          console.log(result);
           if (result.err_msg) {
             $url_short.val(result.err_msg);
             $url_short.parent().addClass('has-error');
@@ -35,12 +34,10 @@
           }
         },
         error: function(data) {
-          console.log(data);
           $url_short.val('请求失败，请重试。');
           $url_short.parent().addClass('has-error');
         },
         complete: function(data) {
-          console.log(data);
           $btn_submit.removeAttr('disabled');    
         }
       });
