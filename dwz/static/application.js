@@ -23,14 +23,14 @@
         data: { url: url },
         dataType: 'json',
         beforeSend: function() {
-          $btn_submit.attr('disabled', 'disabled');
+          $btn_submit.prop('disabled', true);
         },
         success: function(result) {
-          if (result.err_msg) {
-            $url_short.val(result.err_msg);
+          if (result.errMsg) {
+            $url_short.val(result.errMsg);
             $url_short.parent().addClass('has-error');
           } else {
-            $url_short.val(result.tinyurl).focus().select();
+            $url_short.val(result.urls[0].url_short).focus().select();
           }
         },
         error: function(data) {
@@ -38,7 +38,7 @@
           $url_short.parent().addClass('has-error');
         },
         complete: function(data) {
-          $btn_submit.removeAttr('disabled');    
+          $btn_submit.prop('disabled', false);
         }
       });
     }

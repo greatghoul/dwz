@@ -1,5 +1,6 @@
 # coding: utf-8
 
+import os
 import requests
 
 from flask import Flask
@@ -20,5 +21,8 @@ def index():
 @app.route('/create', methods=['POST'])
 @cross_origin()
 def create():
-    req = requests.post('http://dwz.cn/create.php', data=request.form, stream=True)
+    headers = { 'apikey': os.environ['DWZ_TOKEN'] }
+    payload = { 'url_long': request.form['url'] }
+    api_url = 'http://apis.baidu.com/3023/shorturl/shorten'
+    req = requests.get(api_url, params=payload, headers=headers, stream=True)
     return Response(stream_with_context(req.iter_content()), content_type=req.headers['content-type'])
