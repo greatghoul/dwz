@@ -18,7 +18,7 @@
       if (!url) return;
 
       $.ajax({
-        url: '/create.php',
+        url: '/create',
         type: 'POST',
         data: { url: url },
         dataType: 'json',
