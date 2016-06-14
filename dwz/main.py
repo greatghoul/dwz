@@ -24,7 +24,7 @@ def index():
 @app.route('/create', methods=['POST'])
 @cross_origin()
 def create():
-    headers = { 'apikey': os.environ['DWZ_TOKEN'] }
+    headers = { 'apikey': app.config['API_TOKEN'] }
     payload = { 'url_long': request.form['url'] }
     api_url = 'http://apis.baidu.com/3023/shorturl/shorten'
     req = requests.get(api_url, params=payload, headers=headers, stream=True)
