@@ -11,7 +11,10 @@ from flask import render_template
 from flask import stream_with_context
 from flask_cors.decorator import cross_origin
 
+from dwz import config
+
 app = Flask(__name__)
+app.config.from_object(config)
 
 @app.route('/', methods=['GET'])
 def index():

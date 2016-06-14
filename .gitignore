@@ -1,10 +1,6 @@
 *.pyc
 *.wsgic
 
-/.venv
-/site-packages
-/site/config.py
-/site/site-packages.zip
-/site/static/lib
+/dwz/config.py
 /.idea
 /fabfile.py

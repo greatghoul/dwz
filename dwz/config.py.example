@@ -1,0 +1,5 @@
+# Debug is disabled by default.
+DEBUG = True
+SECRET_KEY = 'suckmycock!'
+
+API_TOKEN=YOUR KEY
