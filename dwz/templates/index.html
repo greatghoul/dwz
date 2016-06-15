@@ -5,7 +5,7 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>短网址</title>
+  <title>缩短网址</title>
 
   <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
   <script>
@@ -22,8 +22,17 @@
   <div class="container" style="margin-top: 15px;">
     <div class="panel panel-default" style="margin-bottom:0;">
       <div class="panel-heading">
-      <a href="#" id="bookmarklet" class="btn btn-info btn-xs pull-right" title="将我拖动到书签栏">缩短网址</a>
-        <div class="panel-title">短网址</div>
+        <div class="pull-right">
+          <span id="bookmarklet" class="hide">
+            <small class="text-info">将我拖动到书签栏 ➔</small>
+            <a href="#" class="btn btn-info btn-xs" title="将我拖动到书签栏">缩短网址</a>
+          </span>
+          <a href="http://ghoulmind.com/2016/06/new-dwz-bookmarklet/"
+             title="关于" target="_blank" class="btn btn-info btn-xs">?</a>
+        </div>
+        <div class="panel-title">
+          缩短网址
+        </div>
       </div>
       <div class="panel-body">
         <div class="form-group">
@@ -35,6 +44,7 @@
       </div>
       <div class="panel-footer" style="text-align: center;">
         <button class="btn btn-primary" id="btn-submit">缩短网址</button>
+
       </div>
     </div>
   </div>

@@ -1,4 +1,6 @@
 (function() {
+  var BOOKMARKLET_TPL = "javascript:(function(){window.open('__DWZ__?url='+encodeURIComponent(location.href),'_blank','width=450,height=260');})()";
+
   function getParameterByName(name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
@@ -47,6 +49,9 @@
     $btn_submit.on('click', shorterUrl)
     $btn_submit.trigger('click');
 
-    $('#bookmarklet').attr('href', "javascript:(function(){window.open('__DWZ__?url='+encodeURIComponent(location.href),'_blank','width=450,height=260');})()".replace('__DWZ__', location.origin));
+    if (!window.opener) {
+      $('#bookmarklet').removeClass('hide');
+      $('#bookmarklet a').attr('href', BOOKMARKLET_TPL.replace('__DWZ__', location.origin));
+    }
   });  
 })();
