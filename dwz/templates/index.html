@@ -8,15 +8,6 @@
   <title>缩短网址</title>
 
   <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?c51e16d11cf898be321a5c6e9c92c676";
-    var s = document.getElementsByTagName("script")[0]; 
-    s.parentNode.insertBefore(hm, s);
-  })();
-  </script>
 </head>
 <body>
   <div class="container" style="margin-top: 15px;">
@@ -44,12 +35,14 @@
       </div>
       <div class="panel-footer" style="text-align: center;">
         <button class="btn btn-primary" id="btn-submit">缩短网址</button>
-
       </div>
     </div>
   </div>
 
-  <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-  <script src="{{ url_for('static', filename='application.js') }}" type="text/javascript"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='application.js') }}" type="text/javascript"></script>
+    {% if config.GA_TRACKING_ID %}
+        {% include 'ga_tracking_code.html' %}
+    {% endif %}
 </body>
 </html>
